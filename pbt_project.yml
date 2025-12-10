@@ -45,8 +45,125 @@ sqlMacros:
     - macros/prophecy_tmp_source.sql
     - .prophecy/ide/macros/prophecy_tmp_source.json
     createdAt: '2025-12-05 10:36:50'
+  .prophecy/metadata/sqlmacros/Buffer:
+    name: Buffer
+    macroType: query
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - macros/Buffer.sql
+    - .prophecy/ide/macros/Buffer.json
+    - macros/macros.yml
+    - gems/Buffer.py
+    createdAt: '2025-12-08 17:28:50'
+  .prophecy/metadata/sqlmacros/bigquery__Buffer:
+    name: bigquery__Buffer
+    macroType: query
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - macros/Buffer.sql
+    - macros/macros.yml
+    createdAt: '2025-12-08 17:29:24'
+  .prophecy/metadata/sqlmacros/default__Buffer:
+    name: default__Buffer
+    macroType: query
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - macros/Buffer.sql
+    createdAt: '2025-12-08 17:29:24'
+  .prophecy/metadata/sqlmacros/duckdb__Buffer:
+    name: duckdb__Buffer
+    macroType: query
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - macros/Buffer.sql
+    createdAt: '2025-12-08 17:29:24'
 sqlSeeds: {}
-sqlSources: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/prophecy_field_abhinav_demos:
+    name: prophecy_field.abhinav_demos
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2025-12-05 11:25:34'
+    tables:
+    - name: customer_orders
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: total_amount
+          dataType:
+            type: Float
+        - name: total_orders
+          dataType:
+            type: Integer
+      description: null
+      author: gee.chris@prophecy.io
+      createdAt: '2025-12-05 11:25:34'
+      tableType: table
+    - name: customers
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: phone
+          dataType:
+            type: String
+        - name: email
+          dataType:
+            type: String
+        - name: country_code
+          dataType:
+            type: String
+        - name: account_open_date
+          dataType:
+            type: Date
+        - name: account_flags
+          dataType:
+            type: String
+      description: null
+      author: gee.chris@prophecy.io
+      createdAt: '2025-12-05 11:56:00'
+      tableType: table
+    - name: test_cg_1
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: country_code
+          dataType:
+            type: String
+        - name: sum_total
+          dataType:
+            type: Float
+        - name: sum_orders
+          dataType:
+            type: Integer
+      description: Aggregated customer spending and order data by country, supporting
+        analysis of customer value across regions.
+      author: gee.chris@prophecy.io
+      createdAt: '2025-12-05 12:49:32'
+      tableType: table
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
@@ -76,5 +193,25 @@ sqlOrchestratorPipelines:
     files:
     - .prophecy/ide/pipelines/test_bq_1.json
     - pipelines/test_bq_1.py
+    - models/test_bq_1/schema.yml
+    - models/test_bq_1/test_bq_1__Buffer_1.sql
     createdAt: '2025-12-05 10:36:50'
-sqlBusinessApps: {}
+  .prophecy/metadata/sqlorchestratorpipeline/test_bq_2:
+    name: test_bq_2
+    schema: null
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - pipelines/test_folder/test_bq_2.py
+    - .prophecy/ide/pipelines/test_bq_2.json
+    createdAt: '2025-12-05 14:17:59'
+sqlBusinessApps:
+  .prophecy/metadata/sqlbusinessapp/test_bq_1:
+    name: test_bq_1
+    schema: null
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - apps/test_bq_1.json
+    createdAt: '2025-12-05 13:18:10'
+    sqlOrchestrationPipelineName: test_bq_1

@@ -1,0 +1,67 @@
+---
+version: 2
+sources:
+- name: "prophecy_field.abhinav_demos"
+  database: "prophecy-field"
+  schema: "abhinav_demos"
+  tables:
+  - name: "customer_orders"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "total_amount"
+      dataType:
+        type: "Float"
+    - name: "total_orders"
+      dataType:
+        type: "Integer"
+    type: "table"
+  - name: "customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "phone"
+      dataType:
+        type: "String"
+    - name: "email"
+      dataType:
+        type: "String"
+    - name: "country_code"
+      dataType:
+        type: "String"
+    - name: "account_open_date"
+      dataType:
+        type: "Date"
+    - name: "account_flags"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "test_cg_1"
+    description: "Aggregated customer spending and order data by country, supporting\
+      \ analysis of customer value across regions."
+    columns:
+    - name: "customer_id"
+      description: "Unique identifier for each customer."
+      dataType:
+        type: "Integer"
+    - name: "country_code"
+      description: "Country code representing the customer's location."
+      dataType:
+        type: "String"
+    - name: "sum_total"
+      description: "Total value of all orders placed by the customer."
+      dataType:
+        type: "Float"
+    - name: "sum_orders"
+      description: "Total number of orders placed by the customer."
+      dataType:
+        type: "Integer"
+    type: "table"

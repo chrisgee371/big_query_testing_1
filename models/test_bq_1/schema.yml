@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "test_bq_1__Buffer_1"
+  tags:
+  - "prophecy_temp"

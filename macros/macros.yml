@@ -1,0 +1,27 @@
+---
+version: 2
+macros:
+- name: "Buffer"
+  arguments:
+  - name: "parameter1"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  macroType: "query"
+- name: "bigquery__Buffer"
+  arguments:
+  - name: "table_name"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "schema"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "geom_column_name"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "distance"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "unit"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  macroType: "query"

@@ -1,0 +1,299 @@
+{
+  "Buffer" : {
+    "name" : "Buffer",
+    "macroType" : "query",
+    "definition" : "{{ return(adapter.dispatch('Buffer', 'bg_test_cg_1')(table_name, schema, geom_column_name, distance, unit)) }}",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "schema",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "geom_column_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "distance",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "unit",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      } ]
+    },
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "macros",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"Buffer\"\n  arguments:\n  - name: \"parameter1\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n- name: \"bigquery__Buffer\"\n  arguments:\n  - name: \"table_name\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"schema\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"geom_column_name\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"distance\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"unit\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n",
+      "path" : "bg_test_cg_1/macros/macros.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "Buffer",
+          "arguments" : [ {
+            "name" : "parameter1",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
+        }, {
+          "name" : "bigquery__Buffer",
+          "arguments" : [ {
+            "name" : "table_name",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "schema",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "geom_column_name",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "distance",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "unit",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
+        } ]
+      },
+      "packagesYml" : null,
+      "editable" : true
+    },
+    "version" : 0
+  },
+  "default__Buffer" : {
+    "name" : "default__Buffer",
+    "macroType" : "query",
+    "definition" : "\n  {{ log(\"table_name=\" ~ table_name, info=True) }}\n  {{ log(\"schema=\" ~ schema, info=True) }}\n  {{ log(\"geom_column_name=\" ~ geom_column_name, info=True) }}\n  {{ log(\"distance=\" ~ distance, info=True) }}\n  {{ log(\"unit=\" ~ unit, info=True) }}\n\n  {% if unit == 'kilometers' %}\n    {% set distance_meters = distance * 1000 %}\n  {% else %}\n    {% set distance_meters = distance * 1609.34 %}\n  {% endif %}\n\n  SELECT\n    {{geom_column_name}} as input,\n    ST_AsText(\n      ST_Transform(\n        ST_Buffer(\n          ST_Transform(\n            ST_GeomFromText({{geom_column_name}}, 4326),\n            3857\n          ),\n          {{distance_meters}}\n        ),\n        4326\n      )\n    ) as output\n  FROM\n    {{table_name}}",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "schema",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "geom_column_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "distance",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "unit",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      } ]
+    },
+    "staleState" : "none",
+    "version" : 0
+  },
+  "duckdb__Buffer" : {
+    "name" : "duckdb__Buffer",
+    "macroType" : "query",
+    "definition" : "\n  {{ log(\"table_name=\" ~ table_name, info=True) }}\n  {{ log(\"schema=\" ~ schema, info=True) }}\n  {{ log(\"geom_column_name=\" ~ geom_column_name, info=True) }}\n  {{ log(\"distance=\" ~ distance, info=True) }}\n  {{ log(\"unit=\" ~ unit, info=True) }}\n\n  {% set _distance = distance | float %}\n  {% if unit == 'kilometers' %}\n    {% set distance_meters = _distance * 1000 %}\n  {% else %}\n    {% set distance_meters = _distance * 1609.34 %}\n  {% endif %}\n\n  SELECT\n    {{ geom_column_name }} AS input,\n    ST_AsText(\n      ST_Transform(\n        ST_Buffer(\n          ST_Transform(\n            ST_GeomFromText({{ geom_column_name }}),\n            'EPSG:4326',\n            'EPSG:3857',\n            always_xy := true\n          ),\n          {{ distance_meters }}\n        ),\n        'EPSG:3857',\n        'EPSG:4326',\n        always_xy := true\n      )\n    ) AS output\n  FROM\n    {{ table_name }}",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "schema",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "geom_column_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "distance",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "unit",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      } ]
+    },
+    "staleState" : "none",
+    "version" : 0
+  },
+  "bigquery__Buffer" : {
+    "name" : "bigquery__Buffer",
+    "macroType" : "query",
+    "definition" : "\n  {{ log(\"table_name=\" ~ table_name, info=True) }}\n  {{ log(\"schema=\" ~ schema, info=True) }}\n  {{ log(\"geom_column_name=\" ~ geom_column_name, info=True) }}\n  {{ log(\"distance=\" ~ distance, info=True) }}\n  {{ log(\"unit=\" ~ unit, info=True) }}\n\n  {% set _distance = distance | float %}\n  {% if unit == 'kilometers' %}\n    {% set distance_meters = _distance * 1000 %}\n  {% else %}\n    {% set distance_meters = _distance * 1609.34 %}\n  {% endif %}\n\n  SELECT\n    {{ geom_column_name }} AS input,\n    ST_ASTEXT(\n      ST_BUFFER(\n        ST_GEOGFROMTEXT({{ geom_column_name }}),\n        {{ distance_meters }}\n      )\n    ) AS output\n  FROM\n    {{ table_name }}",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "comment" : "",
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "schema",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "comment" : "",
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "geom_column_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "comment" : "",
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "distance",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "comment" : "",
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "unit",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "comment" : "",
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      } ]
+    },
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "macros",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"Buffer\"\n  arguments:\n  - name: \"parameter1\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n- name: \"bigquery__Buffer\"\n  arguments:\n  - name: \"table_name\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"schema\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"geom_column_name\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"distance\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  - name: \"unit\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n",
+      "path" : "bg_test_cg_1/macros/macros.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "Buffer",
+          "arguments" : [ {
+            "name" : "parameter1",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
+        }, {
+          "name" : "bigquery__Buffer",
+          "arguments" : [ {
+            "name" : "table_name",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "schema",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "geom_column_name",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "distance",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          }, {
+            "name" : "unit",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
+        } ]
+      },
+      "packagesYml" : null,
+      "editable" : true
+    },
+    "version" : 0
+  }
+}

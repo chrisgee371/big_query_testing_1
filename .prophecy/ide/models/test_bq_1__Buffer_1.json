@@ -1,0 +1,142 @@
+{
+  "id" : "test_bq_1__Buffer_1",
+  "metainfo" : {
+    "label" : "test_bq_1__Buffer_1",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "ephemeral",
+        "database" : "\"prophecy-field\"",
+        "schema" : "\"abhinav_demos\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku" : {
+      "id" : "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "Buffer_1"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM Buffer_1\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : {
+      "id" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
+      "component" : "Buffer",
+      "metadata" : {
+        "label" : "Buffer_1",
+        "x" : -260,
+        "y" : -240,
+        "phase" : 0
+      },
+      "properties" : {
+        "relation_name" : [ "city_list" ],
+        "geometryColumnName" : "location",
+        "_oldMacroProperties" : {
+          "macroName" : "Buffer",
+          "projectName" : "bg_test_cg_1",
+          "parameters" : [ {
+            "name" : "relation_name",
+            "value" : "['city_list']"
+          }, {
+            "name" : "schema",
+            "value" : "[{\"name\": \"location\", \"dataType\": \"String\"}]"
+          }, {
+            "name" : "destinationColumnNames",
+            "value" : "location"
+          }, {
+            "name" : "distance",
+            "value" : "1"
+          }, {
+            "name" : "unit",
+            "value" : "miles"
+          } ]
+        },
+        "schema" : "[{\"name\": \"location\", \"dataType\": \"String\"}]",
+        "unit" : "miles",
+        "distance" : 1
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WRH6rr0Sd5crzQBV4EjUv$$xfFB0nZ_rBnNp-cRTv_Hr",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ" : {
+      "id" : "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "city_list",
+        "x" : -500,
+        "y" : -240,
+        "phase" : 0
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "WITH city_list AS (\r\n\r\n  SELECT 'POINT(-84.3880 33.7490)' AS location      -- Atlanta\r\n  UNION ALL\r\n  SELECT 'POINT(-74.0060 40.7128)'                  -- New York City\r\n  UNION ALL\r\n  SELECT 'POINT(-118.2437 34.0522)'                 -- Los Angeles\r\n  UNION ALL\r\n  SELECT 'POINT(-122.4194 37.7749)'                 -- San Francisco\r\n  UNION ALL\r\n  SELECT 'POINT(-122.6765 45.5231)'                 -- Portland\r\n  UNION ALL\r\n  SELECT 'POINT(-90.0715 29.9511)'                  -- New Orleans\r\n  UNION ALL\r\n  SELECT 'POINT(-112.0740 33.4484)'                 -- Phoenix\r\n  UNION ALL\r\n  SELECT 'POINT(-87.6298 41.8781)'                  -- Chicago\r\n  UNION ALL\r\n  SELECT 'POINT(-83.0458 42.3314)'                  -- Detroit\r\n  UNION ALL\r\n  SELECT 'POINT(-96.7970 32.7767)'                  -- Dallas\r\n\r\n)\r\n\r\nSELECT *\r\nFROM city_list\r\n\r\n\r\n\r\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Wj7dCBsEL2yOw5eeD0iR5$$Us_g8RA1Co09VYJ5Ziyh1",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku_Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "source" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
+    "sourcePort" : "B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "target" : "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "T7Gc80a1NnT_Mtre3YZK5$$ftN5mwFnLbgoXTbKsYe9r",
+    "source" : "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ",
+    "sourcePort" : "Wj7dCBsEL2yOw5eeD0iR5$$Us_g8RA1Co09VYJ5Ziyh1",
+    "target" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
+    "targetPort" : "WRH6rr0Sd5crzQBV4EjUv$$xfFB0nZ_rBnNp-cRTv_Hr"
+  } ],
+  "component" : "Model"
+}

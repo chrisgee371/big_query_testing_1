@@ -1,0 +1,52 @@
+{
+  "id" : "test_bq_1",
+  "metainfo" : {
+    "description" : "",
+    "pipelineId" : "test_bq_1"
+  },
+  "definition" : {
+    "template" : [ {
+      "key" : "3Bh72CST5G1ClVt5GUd3i",
+      "id" : "TextInput1",
+      "type" : "TextInput",
+      "properties" : {
+        "configField" : "country_code_x",
+        "label" : "Select a country code",
+        "defaultValue" : "CN",
+        "isRequired" : false
+      },
+      "errors" : { }
+    }, {
+      "key" : "nQ9qyaNZbvgnA5Z5pgeu_",
+      "id" : "DataPreview1",
+      "type" : "DataPreview",
+      "properties" : {
+        "tableId" : "6HfLli1JO-koThnK6rX2t$$D29hUfvOPR73VsPQ9IIo4",
+        "columns" : [ {
+          "key" : "customer_id",
+          "column" : "customer_id",
+          "label" : "customer_id",
+          "selected" : true
+        }, {
+          "key" : "country_code",
+          "column" : "country_code",
+          "label" : "country_code",
+          "selected" : true
+        }, {
+          "key" : "sum_total",
+          "column" : "sum_total",
+          "label" : "sum_total",
+          "selected" : true
+        }, {
+          "key" : "sum_orders",
+          "column" : "sum_orders",
+          "label" : "sum_orders",
+          "selected" : true
+        } ],
+        "title" : "Customers"
+      },
+      "errors" : { }
+    } ]
+  },
+  "instances" : { }
+}

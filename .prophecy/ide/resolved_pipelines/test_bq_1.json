@@ -7,7 +7,13 @@
     "configuration" : {
       "schema" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "country_code_x",
+          "kind" : {
+            "type" : "string",
+            "value" : "'CN'"
+          }
+        } ]
       }
     },
     "schedule" : {
@@ -27,7 +33,32 @@
     "isTranspiledPipeline" : false,
     "publishDiagnosticMetrics" : false
   },
-  "processes" : { },
+  "processes" : {
+    "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : {
+      "id" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "test_bq_1__Buffer_1",
+        "phase" : 0
+      },
+      "properties" : {
+        "modelName" : "test_bq_1__Buffer_1"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku", "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL", "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ" ],
+        "type" : "ephemeral",
+        "isTemporaryTable" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "test_bq_1__Buffer_1_out_0",
+          "slug" : "out_0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
   "connections" : [ ],
   "component" : "Pipeline"
 }
