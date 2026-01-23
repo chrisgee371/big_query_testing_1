@@ -172,6 +172,33 @@ sqlSources:
       author: gee.chris@prophecy.io
       createdAt: '2025-12-05 12:49:32'
       tableType: table
+  .prophecy/metadata/sqlsources/prophecy_field_chris_demos:
+    name: prophecy_field_chris_demos
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2026-01-23 13:01:46'
+    tables:
+    - name: my_spatial_table
+      schema:
+        entityType: ''
+        providerType: bigquery
+        fields:
+        - name: input
+          dataType:
+            type: String
+          description: The original spatial data or location information provided
+            for processing.
+        - name: output
+          dataType:
+            type: String
+          description: The resulting spatial data or location information after processing.
+      description: Stores location-based input and output information for spatial
+        analysis.
+      author: gee.chris@prophecy.io
+      createdAt: '2026-01-23 13:01:46'
+      tableType: table
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
@@ -202,7 +229,7 @@ sqlOrchestratorPipelines:
     - .prophecy/ide/pipelines/test_bq_1.json
     - pipelines/test_bq_1.py
     - models/test_bq_1/schema.yml
-    - models/test_bq_1/test_bq_1__Buffer_1.sql
+    - models/test_bq_1/test_bq_1__text_transformation_bigquery.sql
     createdAt: '2025-12-05 10:36:50'
   .prophecy/metadata/sqlorchestratorpipeline/test_bq_2:
     name: test_bq_2

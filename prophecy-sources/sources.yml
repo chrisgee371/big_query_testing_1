@@ -73,3 +73,23 @@ sources:
       dataType:
         type: "Integer"
     type: "table"
+- name: "prophecy_field_chris_demos"
+  database: "prophecy-field"
+  schema: "chris_demos"
+  tables:
+  - name: "my_spatial_table"
+    description: "Stores location-based input and output information for spatial analysis."
+    config:
+      tags:
+      - "pipeline:test_bq_1"
+    columns:
+    - name: "input"
+      description: "The original spatial data or location information provided for\
+        \ processing."
+      dataType:
+        type: "String"
+    - name: "output"
+      description: "The resulting spatial data or location information after processing."
+      dataType:
+        type: "String"
+    type: "table"

@@ -23,11 +23,7 @@
       "triggers" : { }
     } ],
     "isTranspiledPipeline" : false,
-    "publishDiagnosticMetrics" : false,
-    "processesVsModelFiles" : {
-      "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql",
-      "bronze_retail_events_generator_2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql"
-    }
+    "publishDiagnosticMetrics" : false
   },
   "processes" : {
     "Lyd80rCyays2oyNypsurv" : {

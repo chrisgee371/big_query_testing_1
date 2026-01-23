@@ -31,9 +31,9 @@
     "isTranspiledPipeline" : false,
     "publishDiagnosticMetrics" : false,
     "processesVsModelFiles" : {
-      "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ" : "models/test_bq_1/test_bq_1__Buffer_1.sql",
-      "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku" : "models/test_bq_1/test_bq_1__Buffer_1.sql",
-      "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : "models/test_bq_1/test_bq_1__Buffer_1.sql"
+      "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs" : "models/test_bq_1/test_bq_1__text_transformation_bigquery.sql",
+      "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ" : "models/test_bq_1/test_bq_1__text_transformation_bigquery.sql",
+      "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : "models/test_bq_1/test_bq_1__text_transformation_bigquery.sql"
     }
   },
   "processes" : {
@@ -105,19 +105,78 @@
       "ports" : {
         "inputs" : [ {
           "id" : "WRH6rr0Sd5crzQBV4EjUv$$xfFB0nZ_rBnNp-cRTv_Hr",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "BigQuery",
+            "fields" : [ {
+              "name" : "location",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "in0"
         } ],
         "outputs" : [ {
           "id" : "B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "bigquery",
+            "fields" : [ {
+              "name" : "input",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "output",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : true
       },
       "componentInfo" : {
         "gemId" : "Buffer_bg_test_cg_1",
         "name" : "Buffer",
         "projectName" : "bg_test_cg_1",
         "sourceProjectName" : "bg_test_cg_1"
+      }
+    },
+    "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs" : {
+      "id" : "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "text_transformation_bigquery",
+        "x" : -40,
+        "y" : -240,
+        "phase" : 0,
+        "comment" : "Overwrites the spatial data table with updated records for business analysis.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "table" : {
+          "name" : "my_spatial_table",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_field_chris_demos",
+          "alias" : ""
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "mAQ-JgEx5RHKsovtxqQzM$$zQSUO-uFWZBJqIxmVLAlQ",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "ZEdZJclLRrV6zpN5ez_qA$$9Vq39fha9hr_aYtsMOkj9",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
       }
     }
   },
@@ -127,6 +186,12 @@
     "sourcePort" : "Wj7dCBsEL2yOw5eeD0iR5$$Us_g8RA1Co09VYJ5Ziyh1",
     "target" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
     "targetPort" : "WRH6rr0Sd5crzQBV4EjUv$$xfFB0nZ_rBnNp-cRTv_Hr"
+  }, {
+    "id" : "eFrDvOvpcU8FOSqGozbxa",
+    "source" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
+    "sourcePort" : "B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "target" : "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs",
+    "targetPort" : "mAQ-JgEx5RHKsovtxqQzM$$zQSUO-uFWZBJqIxmVLAlQ"
   } ],
   "component" : "Pipeline"
 }

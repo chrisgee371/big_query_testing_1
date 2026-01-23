@@ -11,4 +11,8 @@ Schedules = [Schedule(
              )]
 
 with DAG(Config = Config, schedules = Schedules):
-    test_bq_1__Buffer_1 = Task(task_id = "test_bq_1__Buffer_1", component = "Model", modelName = "test_bq_1__Buffer_1")
+    test_bq_1__text_transformation_bigquery = Task(
+        task_id = "test_bq_1__text_transformation_bigquery", 
+        component = "Model", 
+        modelName = "test_bq_1__text_transformation_bigquery"
+    )

@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "test_bq_1__Buffer_1"
+- name: "test_bq_1__text_transformation_bigquery"
   tags:
   - "prophecy_temp"

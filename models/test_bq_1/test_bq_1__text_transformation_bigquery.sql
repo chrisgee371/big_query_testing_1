@@ -1,8 +1,9 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "my_spatial_table",
     "database": "prophecy-field",
-    "schema": "abhinav_demos"
+    "schema": "chris_demos"
   })
 }}
 

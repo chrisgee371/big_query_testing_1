@@ -1,7 +1,7 @@
 {
-  "id" : "test_bq_1__Buffer_1",
+  "id" : "test_bq_1__text_transformation_bigquery",
   "metainfo" : {
-    "label" : "test_bq_1__Buffer_1",
+    "label" : "test_bq_1__text_transformation_bigquery",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -9,20 +9,22 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "materialized" : "ephemeral",
+        "alias" : "\"my_spatial_table\"",
+        "materialized" : "table",
         "database" : "\"prophecy-field\"",
-        "schema" : "\"abhinav_demos\"",
+        "schema" : "\"chris_demos\"",
         "type" : "ModelConfig"
       }
     },
     "version" : 3
   },
   "processes" : {
-    "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku" : {
-      "id" : "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs" : {
+      "id" : "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs",
       "component" : "TargetModel",
       "metadata" : {
-        "label" : "Buffer_1"
+        "label" : "text_transformation_bigquery",
+        "phase" : 0
       },
       "properties" : {
         "customQueryDisabled" : true,
@@ -37,12 +39,12 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
+          "id" : "mAQ-JgEx5RHKsovtxqQzM$$zQSUO-uFWZBJqIxmVLAlQ",
+          "slug" : "in"
         } ],
         "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
+          "id" : "ZEdZJclLRrV6zpN5ez_qA$$9Vq39fha9hr_aYtsMOkj9",
+          "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -126,11 +128,11 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku_Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
+    "id" : "eFrDvOvpcU8FOSqGozbxa",
     "source" : "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL",
     "sourcePort" : "B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
-    "target" : "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku",
-    "targetPort" : "input_port_0"
+    "target" : "nkBiv452OKNdjFLRLJxoP$$_QTQtT_4Ad-eRhvtzXJBs",
+    "targetPort" : "mAQ-JgEx5RHKsovtxqQzM$$zQSUO-uFWZBJqIxmVLAlQ"
   }, {
     "id" : "T7Gc80a1NnT_Mtre3YZK5$$ftN5mwFnLbgoXTbKsYe9r",
     "source" : "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ",
