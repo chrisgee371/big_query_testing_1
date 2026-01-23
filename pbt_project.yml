@@ -221,8 +221,6 @@ sqlOrchestratorPipelines:
     files:
     - .prophecy/ide/pipelines/bronze_pipeline_cg1.json
     - pipelines/bronze_pipeline_cg1.py
-    - models/bronze_pipeline_cg1/schema.yml
-    - models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql
     createdAt: '2025-12-12 14:41:36'
 sqlBusinessApps:
   .prophecy/metadata/sqlbusinessapp/test_bq_1:

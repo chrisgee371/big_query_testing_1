@@ -1,6 +1,0 @@
----
-version: 2
-models:
-- name: "bronze_pipeline_cg1__bronze_retail_events_generator"
-  tags:
-  - "prophecy_temp"

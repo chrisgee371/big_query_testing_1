@@ -10,22 +10,24 @@
         "fields" : [ ]
       }
     },
-    "schedule" : {
+    "schedules" : [ {
+      "name" : "Schedule 1",
+      "scheduleType" : "cron",
       "cron" : "* 0 2 * * * *",
       "timeZone" : "GMT",
       "emailOnSuccess" : false,
       "emailOnFailure" : false,
       "emailOnStart" : false,
       "emails" : [ "email@gmail.com" ],
-      "enabled" : false
-    },
-    "sensorSchedule" : {
       "enabled" : false,
-      "isDefaultView" : false,
       "triggers" : { }
-    },
+    } ],
     "isTranspiledPipeline" : false,
-    "publishDiagnosticMetrics" : false
+    "publishDiagnosticMetrics" : false,
+    "processesVsModelFiles" : {
+      "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql",
+      "bronze_retail_events_generator_2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql"
+    }
   },
   "processes" : {
     "Lyd80rCyays2oyNypsurv" : {
@@ -56,30 +58,6 @@
         "outputs" : [ {
           "id" : "ygjweSY7z4BiEhwRdp3_0",
           "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : {
-      "id" : "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "bronze_pipeline_cg1__bronze_retail_events_generator",
-        "phase" : 0
-      },
-      "properties" : {
-        "modelName" : "bronze_pipeline_cg1__bronze_retail_events_generator"
-      },
-      "visualMetaInfo" : {
-        "visualProcessIds" : [ "bronze_retail_events_generator_2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ", "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" ],
-        "type" : "ephemeral",
-        "isTemporaryTable" : true
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "bronze_pipeline_cg1__bronze_retail_events_generator_out_0",
-          "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
       }
