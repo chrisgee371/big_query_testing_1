@@ -16,22 +16,25 @@
         } ]
       }
     },
-    "schedule" : {
+    "schedules" : [ {
+      "name" : "Schedule 1",
+      "scheduleType" : "cron",
       "cron" : "* 0 2 * * * *",
       "timeZone" : "GMT",
       "emailOnSuccess" : false,
       "emailOnFailure" : false,
       "emailOnStart" : false,
       "emails" : [ "email@gmail.com" ],
-      "enabled" : false
-    },
-    "sensorSchedule" : {
       "enabled" : false,
-      "isDefaultView" : false,
       "triggers" : { }
-    },
+    } ],
     "isTranspiledPipeline" : false,
-    "publishDiagnosticMetrics" : false
+    "publishDiagnosticMetrics" : false,
+    "processesVsModelFiles" : {
+      "UScvVjB8kTo7PQdJfzpwU$$en5RK-r7VxDlypr3miBnQ" : "models/test_bq_1/test_bq_1__Buffer_1.sql",
+      "Buffer_1_B6na1chYl4KaZtzdPcuNR$$uMeQIqhNzSSY-DV_qROku" : "models/test_bq_1/test_bq_1__Buffer_1.sql",
+      "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : "models/test_bq_1/test_bq_1__Buffer_1.sql"
+    }
   },
   "processes" : {
     "Bld3pH9PZbOU1Bub66ENt$$CKQrm2Johk0JFSHU29eoL" : {

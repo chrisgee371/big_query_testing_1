@@ -1,5 +1,13 @@
-Schedule = Schedule(cron = "* 0 2 * * * *", timezone = "GMT", emails = ["email@gmail.com"], enabled = False)
-SensorSchedule = SensorSchedule(enabled = False)
+Schedules = [Schedule(
+               Name = "Schedule 1", 
+               emails = ["email@gmail.com"], 
+               emailOnStart = False, 
+               emailOnFailure = False, 
+               emailOnSuccess = False, 
+               enabled = False, 
+               cron = "* 0 2 * * * *", 
+               timezone = "GMT"
+             )]
 
-with DAG(Schedule = Schedule, SensorSchedule = SensorSchedule):
+with DAG(schedules = Schedules):
     pass

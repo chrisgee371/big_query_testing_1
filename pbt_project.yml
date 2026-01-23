@@ -99,13 +99,17 @@ sqlSources:
         - name: customer_id
           dataType:
             type: Integer
+          description: Unique identifier assigned to each customer.
         - name: total_amount
           dataType:
             type: Float
+          description: Total value of all purchases made by the customer.
         - name: total_orders
           dataType:
             type: Integer
-      description: null
+          description: Total number of orders placed by the customer.
+      description: Summarizes each customer's total spending and order count for business
+        performance analysis.
       author: gee.chris@prophecy.io
       createdAt: '2025-12-05 11:25:34'
       tableType: table
@@ -150,15 +154,19 @@ sqlSources:
         - name: customer_id
           dataType:
             type: Integer
+          description: Unique identifier for each customer.
         - name: country_code
           dataType:
             type: String
+          description: Country code representing the customer's location.
         - name: sum_total
           dataType:
             type: Float
+          description: Total value of all orders placed by the customer.
         - name: sum_orders
           dataType:
             type: Integer
+          description: Total number of orders placed by the customer.
       description: Aggregated customer spending and order data by country, supporting
         analysis of customer value across regions.
       author: gee.chris@prophecy.io
@@ -205,6 +213,17 @@ sqlOrchestratorPipelines:
     - pipelines/test_folder/test_bq_2.py
     - .prophecy/ide/pipelines/test_bq_2.json
     createdAt: '2025-12-05 14:17:59'
+  .prophecy/metadata/sqlorchestratorpipeline/bronze_pipeline_cg1:
+    name: bronze_pipeline_cg1
+    schema: null
+    description: null
+    author: gee.chris@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/bronze_pipeline_cg1.json
+    - pipelines/bronze_pipeline_cg1.py
+    - models/bronze_pipeline_cg1/schema.yml
+    - models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql
+    createdAt: '2025-12-12 14:41:36'
 sqlBusinessApps:
   .prophecy/metadata/sqlbusinessapp/test_bq_1:
     name: test_bq_1

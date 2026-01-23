@@ -1,0 +1,96 @@
+{
+  "id" : "bronze_pipeline_cg1",
+  "metainfo" : {
+    "label" : "bronze_pipeline_cg1",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "schedules" : [ {
+      "name" : "Schedule 1",
+      "scheduleType" : "cron",
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "GMT",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ "email@gmail.com" ],
+      "enabled" : false,
+      "triggers" : { }
+    } ],
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false,
+    "processesVsModelFiles" : {
+      "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql",
+      "bronze_retail_events_generator_2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ" : "models/bronze_pipeline_cg1/bronze_pipeline_cg1__bronze_retail_events_generator.sql"
+    }
+  },
+  "processes" : {
+    "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : {
+      "id" : "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "bronze_retail_events_generator",
+        "x" : -700,
+        "y" : -280,
+        "phase" : 0,
+        "comment" : "Sets up a structured storage area for retail event data, enabling organized tracking and analysis of sales activities.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "CREATE SCHEMA IF NOT EXISTS `your-project.demo_bronze`;\r\n\r\nCREATE TABLE IF NOT EXISTS `your-project.demo_bronze.bronze_retail_events` (\r\n  ingest_date        DATE,\r\n  ingest_ts          TIMESTAMP,\r\n  source_file        STRING,\r\n  row_in_file        INT64,\r\n  event_id           STRING,\r\n  event_ts_raw       STRING,\r\n  order_id_raw       STRING,\r\n  customer_id_raw    STRING,\r\n  product_id_raw     STRING,\r\n  store_id_raw       STRING,\r\n  channel_raw        STRING,\r\n  country_raw        STRING,\r\n  city_raw           STRING,\r\n  quantity_raw       STRING,\r\n  unit_price_raw     STRING,\r\n  discount_pct_raw   STRING,\r\n  currency_raw       STRING,\r\n  payment_method_raw STRING,\r\n  status_raw         STRING,\r\n  notes_raw          STRING,\r\n  raw_payload        STRING\r\n)\r\nPARTITION BY ingest_date;\r\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "Lyd80rCyays2oyNypsurv" : {
+      "id" : "Lyd80rCyays2oyNypsurv",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "customer_orders",
+        "x" : -632.4000244140625,
+        "y" : 47.400001525878906,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "customer_orders",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_field.abhinav_demos",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "KWPdc1HlXw6DJwpTjTjEJ",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "ygjweSY7z4BiEhwRdp3_0",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ ],
+  "component" : "Pipeline"
+}

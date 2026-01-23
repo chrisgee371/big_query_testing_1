@@ -1,0 +1,90 @@
+{
+  "id" : "bronze_pipeline_cg1",
+  "metainfo" : {
+    "label" : "bronze_pipeline_cg1",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "schedule" : {
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "GMT",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ "email@gmail.com" ],
+      "enabled" : false
+    },
+    "sensorSchedule" : {
+      "enabled" : false,
+      "isDefaultView" : false,
+      "triggers" : { }
+    },
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false
+  },
+  "processes" : {
+    "Lyd80rCyays2oyNypsurv" : {
+      "id" : "Lyd80rCyays2oyNypsurv",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "customer_orders",
+        "x" : -632.4000244140625,
+        "y" : 47.400001525878906,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "customer_orders",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_field.abhinav_demos",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "KWPdc1HlXw6DJwpTjTjEJ",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "ygjweSY7z4BiEhwRdp3_0",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" : {
+      "id" : "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "bronze_pipeline_cg1__bronze_retail_events_generator",
+        "phase" : 0
+      },
+      "properties" : {
+        "modelName" : "bronze_pipeline_cg1__bronze_retail_events_generator"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "bronze_retail_events_generator_2bhfLU0o-U4a1Q3HShjen$$KjnPOUaVc8kWQzvmuhtKJ", "Acpr6VQeZMwXjRQA52Hu2$$Z6OIbB2MJzRjFl2eaaGXk" ],
+        "type" : "ephemeral",
+        "isTemporaryTable" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "bronze_pipeline_cg1__bronze_retail_events_generator_out_0",
+          "slug" : "out_0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ ],
+  "component" : "Pipeline"
+}

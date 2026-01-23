@@ -6,14 +6,22 @@ sources:
   schema: "abhinav_demos"
   tables:
   - name: "customer_orders"
+    description: "Summarizes each customer's total spending and order count for business\
+      \ performance analysis."
+    config:
+      tags:
+      - "pipeline:bronze_pipeline_cg1"
     columns:
     - name: "customer_id"
+      description: "Unique identifier assigned to each customer."
       dataType:
         type: "Integer"
     - name: "total_amount"
+      description: "Total value of all purchases made by the customer."
       dataType:
         type: "Float"
     - name: "total_orders"
+      description: "Total number of orders placed by the customer."
       dataType:
         type: "Integer"
     type: "table"
